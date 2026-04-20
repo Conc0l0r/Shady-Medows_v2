@@ -1,4 +1,9 @@
 <?php
+
+
+
+
+
 require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/Exception.php';
 require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
@@ -49,12 +54,27 @@ function jsonErr(string $message, int $code = 400): never {
 function getDB(): PDO {
     static $pdo = null;
     if ($pdo === null) {
-        $dsn = sprintf(
-            'mysql:host=%s;port=%d;dbname=%s;charset=utf8mb4',
-            DB_HOST, DB_PORT, DB_NAME
-        );
+        $url = getenv('MYSQL_URL');
+
+        if ($url) {
+            $parts  = parse_url($url);
+            $host   = $parts['host'];
+            $port   = $parts['port'] ?? 3306;
+            $user   = $parts['user'];
+            $pass   = $parts['pass'];
+            $dbname = ltrim($parts['path'], '/');
+        } else {
+            // Local fallback
+            $host   = 'localhost';
+            $port   = 3307;
+            $user   = 'root';
+            $pass   = '';
+            $dbname = 'shadymedowsv2';
+        }
+
+        $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
         try {
-            $pdo = new PDO($dsn, DB_USER, DB_PASS, [
+            $pdo = new PDO($dsn, $user, $pass, [
                 PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                 PDO::ATTR_EMULATE_PREPARES   => false,
