@@ -75,12 +75,15 @@ function getDB(): PDO {
 // ── Session bootstrap ─────────────────────────────────────────
 function startSession(): void {
     if (session_status() === PHP_SESSION_NONE) {
-        session_save_path('/tmp');  // ← add this line
+        ini_set('session.save_path', '/tmp');
+        ini_set('session.cookie_samesite', 'None');
+        ini_set('session.cookie_secure', '1');
         session_set_cookie_params([
             'lifetime' => SESSION_LIFETIME,
             'path'     => '/',
             'httponly' => true,
-            'samesite' => 'Lax',
+            'samesite' => 'None',
+            'secure'   => true,
         ]);
         session_start();
     }
