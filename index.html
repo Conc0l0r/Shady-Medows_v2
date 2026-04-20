@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" id="root">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shady Meadows B&amp;B</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="root-container">
+
+<!-- ══ MAIN SITE ══════════════════════════════════════════════ -->
+<div id="mainSite">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Shady Meadows B&amp;B</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-2">
+          <li class="nav-item"><a class="nav-link" href="#rooms">Rooms</a></li>
+          <li class="nav-item"><a class="nav-link" href="#booking">Booking</a></li>
+          <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+          <li class="nav-item"><a class="nav-link" href="amenities.html">Amenities</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+           <li class="nav-item"><a class="nav-link" href="profile.html">User Profile</a></li>
+          <li class="nav-item ms-2" id="navAuthArea">
+            <button class="btn-nav-login" id="btnOpenAuth">
+              <i class="bi bi-person me-1"></i>Login / Register
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero text-center">
+    <div class="container position-relative">
+      <span class="hero-badge">Welcome to</span><br>
+      <h1 class="display-4 fw-bold mb-3">Shady Meadows B&amp;B</h1>
+      <div class="hero-divider"></div>
+      <p class="lead col-lg-6 mx-auto">A peaceful countryside escape with comfortable rooms and locally sourced breakfast.</p>
+      <div class="mt-4">
+        <a href="#booking" class="btn btn-gold btn-lg me-2">Book Now</a>
+        <a href="#rooms" class="btn btn-outline-light btn-lg">Explore Rooms</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING AVAILABILITY -->
+  <section id="booking" class="py-4 bg-white">
+    <div class="container">
+      <div class="card shadow" style="border:none;border-radius:16px;">
+        <div class="card-body p-4">
+          <h3 class="card-title text-center mb-4" style="font-family:'Playfair Display',serif;color:var(--gd);">
+            Check Availability &amp; Book Your Stay
+          </h3>
+          <div class="row g-3 align-items-end">
+            <div class="col-md-5">
+              <label for="checkin" class="form-label">Check In</label>
+              <input class="form-control" type="date" id="checkin">
+            </div>
+            <div class="col-md-5">
+              <label for="checkout" class="form-label">Check Out</label>
+              <input class="form-control" type="date" id="checkout">
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-primary w-100 py-2" id="checkAvailBtn">Check</button>
+            </div>
+          </div>
+          <div id="availResult" class="mt-3 d-none"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOMS -->
+  <section id="rooms" class="section-pad">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5" style="color:var(--gd);">Our Rooms</h2>
+        <p class="lead text-muted">Comfortable beds and delightful breakfast from locally sourced ingredients</p>
+        <div style="width:44px;height:3px;background:var(--gold);border-radius:2px;margin:.9rem auto 0;"></div>
+      </div>
+      <div class="row g-4">
+
+        <!-- Single -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm room-card">
+            <div class="room-image">
+              <img alt="Single Room" src="imgs/room1.jpg"
+                   onerror="this.parentNode.style.background='#c8d8d0';this.remove()">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Single</h5>
+              <p class="card-text text-muted" style="font-size:.88rem;">Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa.</p>
+              <div class="d-flex gap-2 flex-wrap mt-2">
+                <span class="badge bg-light text-dark"><i class="bi bi-tv me-1"></i>TV</span>
+                <span class="badge bg-light text-dark"><i class="bi bi-wifi me-1"></i>WiFi</span>
+                <span class="badge bg-light text-dark"><i class="bi bi-safe me-1"></i>Safe</span>
+              </div>
+            </div>
+            <div class="card-footer bg-white d-flex justify-content-between align-items-center" style="border-top:1px solid var(--gl);">
+              <div class="price-label">£100 <small class="text-muted fw-normal" style="font-family:'Lato',sans-serif;font-size:.78rem;">per night</small></div>
+              <div class="text-end">
+                <button class="btn btn-primary btn-book" data-room-id="1" data-room="Single" data-price="100" data-amenities="TV,WiFi,Safe">Book now</button>
+                <div class="lock-note" id="lock1"><i class="bi bi-lock-fill me-1"></i>Login to book</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Double -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm room-card">
+            <div class="room-image">
+              <img alt="Double Room" src="imgs/room2.jpg"
+                   onerror="this.parentNode.style.background='#b8ccc4';this.remove()">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Double</h5>
+              <p class="card-text text-muted" style="font-size:.88rem;">Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat.</p>
+              <div class="d-flex gap-2 flex-wrap mt-2">
+                <span class="badge bg-light text-dark"><i class="bi bi-tv me-1"></i>TV</span>
+                <span class="badge bg-light text-dark"><i class="bi bi-speaker me-1"></i>Radio</span>
+                <span class="badge bg-light text-dark"><i class="bi bi-safe me-1"></i>Safe</span>
+              </div>
+            </div>
+            <div class="card-footer bg-white d-flex justify-content-between align-items-center" style="border-top:1px solid var(--gl);">
+              <div class="price-label">£150 <small class="text-muted fw-normal" style="font-family:'Lato',sans-serif;font-size:.78rem;">per night</small></div>
+              <div class="text-end">
+                <button class="btn btn-primary btn-book" data-room-id="2" data-room="Double" data-price="150" data-amenities="TV,Radio,Safe">Book now</button>
+                <div class="lock-note" id="lock2"><i class="bi bi-lock-fill me-1"></i>Login to book</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Suite -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm room-card">
+            <div class="room-image">
+              <img alt="Suite Room" src="imgs/room3.jpg"
+                   onerror="this.parentNode.style.background='#a8bcb4';this.remove()">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Suite</h5>
+              <p class="card-text text-muted" style="font-size:.88rem;">Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere.</p>
+              <div class="d-flex gap-2 flex-wrap mt-2">
+                <span class="badge bg-light text-dark"><i class="bi bi-speaker me-1"></i>Radio</span>
+                <span class="badge bg-light text-dark"><i class="bi bi-wifi me-1"></i>WiFi</span>
+                <span class="badge bg-light text-dark"><i class="bi bi-safe me-1"></i>Safe</span>
+              </div>
+            </div>
+            <div class="card-footer bg-white d-flex justify-content-between align-items-center" style="border-top:1px solid var(--gl);">
+              <div class="price-label">£225 <small class="text-muted fw-normal" style="font-family:'Lato',sans-serif;font-size:.78rem;">per night</small></div>
+              <div class="text-end">
+                <button class="btn btn-primary btn-book" data-room-id="3" data-room="Suite" data-price="225" data-amenities="Radio,WiFi,Safe">Book now</button>
+                <div class="lock-note" id="lock3"><i class="bi bi-lock-fill me-1"></i>Login to book</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location" class="section-pad bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5" style="color:var(--gd);">Our Location</h2>
+        <p class="lead text-muted">Find us in the beautiful Newingtonfordburyshire countryside</p>
+        <div style="width:44px;height:3px;background:var(--gold);border-radius:2px;margin:.9rem auto 0;"></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card shadow-sm h-100">
+            <img src="imgs/map1.png" alt="Location map" class="w-100"
+                 style="border-radius:10px;min-height:260px;object-fit:cover;"
+                 onerror="this.style.minHeight='260px';this.style.background='var(--gl)';this.src=''">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h3 class="h4 mb-4" style="font-family:'Playfair Display',serif;color:var(--gd);">Contact Information</h3>
+              <div class="d-flex mb-3">
+                <div class="me-3" style="color:var(--gold);"><i class="bi bi-geo-alt fs-4"></i></div>
+                <div><h5 style="color:var(--gd);">Address</h5>
+                  <p class="mb-0 text-muted">Shady Meadows B&amp;B, Shadows valley, Newingtonfordburyshire, Dilbery, N1 1AA</p></div>
+              </div>
+              <div class="d-flex mb-3">
+                <div class="me-3" style="color:var(--gold);"><i class="bi bi-telephone fs-4"></i></div>
+                <div><h5 style="color:var(--gd);">Phone</h5><p class="mb-0 text-muted">012345678901</p></div>
+              </div>
+              <div class="d-flex mb-3">
+                <div class="me-3" style="color:var(--gold);"><i class="bi bi-envelope fs-4"></i></div>
+                <div><h5 style="color:var(--gd);">Email</h5><p class="mb-0 text-muted">contact@shadymeadowsbnb.com</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-pad">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5" style="color:var(--gd);">Send Us a Message</h2>
+        <div style="width:44px;height:3px;background:var(--gold);border-radius:2px;margin:.9rem auto 0;"></div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="card shadow">
+            <div class="card-body p-4">
+              <div id="cFormErr" class="alert alert-danger d-none"></div>
+              <div id="cFormOk" class="alert alert-success d-none"></div>
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input class="form-control" id="cName" type="text" placeholder="Your full name">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input class="form-control" id="cEmail" type="email" placeholder="Your email">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Phone</label>
+                <input class="form-control" id="cPhone" type="tel" placeholder="Your phone number">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Subject</label>
+                <input class="form-control" id="cSubject" type="text" placeholder="Message subject">
+              </div>
+              <div class="mb-4">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" id="cMessage" rows="4" placeholder="Your message (min 20 characters)"></textarea>
+              </div>
+              <button class="btn btn-primary w-100 py-2" id="btnContact">Send Message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5 style="font-family:'Playfair Display',serif;">Shady Meadows B&amp;B</h5>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.65);">A delightful Bed &amp; Breakfast nestled in the hills on Newingtonfordburyshire.</p>
+        </div>
+        <div class="col-md-4">
+          <h5 style="font-family:'Playfair Display',serif;">Contact Us</h5>
+          <ul class="list-unstyled" style="font-size:.85rem;color:rgba(255,255,255,.65);">
+            <li class="mb-1"><i class="bi bi-geo-alt me-2"></i>Shadows valley, Newingtonfordburyshire, N1 1AA</li>
+            <li class="mb-1"><i class="bi bi-telephone me-2"></i>012345678901</li>
+            <li><i class="bi bi-envelope me-2"></i>contact@shadymeadowsbnb.com</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5 style="font-family:'Playfair Display',serif;">Quick Links</h5>
+          <ul class="list-unstyled" style="font-size:.85rem;">
+            <li class="mb-1"><a href="#rooms" class="text-white text-decoration-none">Rooms</a></li>
+            <li class="mb-1"><a href="#booking" class="text-white text-decoration-none">Booking</a></li>
+            <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr style="border-color:rgba(255,255,255,.12);">
+      <p class="text-center mb-0" style="font-size:.78rem;color:rgba(255,255,255,.4);">
+        restful-booker-platform v2.2 — &copy; 2019-26
+      </p>
+    </div>
+  </footer>
+</div><!-- #mainSite -->
+
+
+<!-- ══ BOOKING PAGE ═══════════════════════════════════════════ -->
+<div id="bookingPage">
+  <div class="booking-nav">
+    <div class="booking-nav-inner">
+      <button class="btn-back" id="btnBack"><i class="bi bi-arrow-left"></i> Back</button>
+      <span class="booking-nav-brand">Shady Meadows — Reservation</span>
+      <span id="navStep" style="font-size:.78rem;color:var(--tm);font-weight:600;"></span>
+    </div>
+  </div>
+  <div class="booking-content">
+    <div class="step-bar" id="stepBar">
+      <div class="step-item active" id="si0"><div class="step-circle">1</div><span class="step-label">Stay</span></div>
+      <div class="step-item" id="si1"><div class="step-circle">2</div><span class="step-label">Guest</span></div>
+      <div class="step-item" id="si2"><div class="step-circle">3</div><span class="step-label">Confirm</span></div>
+      <div class="step-item" id="si3"><div class="step-circle"><i class="bi bi-check"></i></div><span class="step-label">Done</span></div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step-panel active" id="panel0">
+      <div class="b-card">
+        <div class="room-header">
+          <h4 id="bp-room" style="margin:0;font-size:1.15rem;">Room</h4>
+          <span class="price-badge" id="bp-price">£—</span>
+        </div>
+        <div id="bp-amenities"></div>
+      </div>
+      <div class="b-card">
+        <div class="b-card-title"><i class="bi bi-calendar3"></i> Select Dates</div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Check-in</label>
+            <input type="date" class="form-control" id="bp-checkin">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Check-out</label>
+            <input type="date" class="form-control" id="bp-checkout">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Guests</label>
+            <select class="form-select" id="bp-guests">
+              <option>1 Guest</option><option>2 Guests</option>
+              <option>3 Guests</option><option>4 Guests</option>
+            </select>
+          </div>
+        </div>
+        <div id="dateErr" class="text-danger mt-2 d-none" style="font-size:.8rem;"></div>
+      </div>
+      <div class="stay-grid">
+        <div><div class="sg-label">Check-in</div><div class="sg-val" id="pc-in">—</div></div>
+        <div class="sg-div"><div class="sg-label">Nights</div><div class="sg-val" id="pc-nights">—</div></div>
+        <div class="sg-div"><div class="sg-label">Estimate</div><div class="sg-val" id="pc-total">—</div></div>
+      </div>
+      <button class="btn-confirm" id="btnS1">Continue to Guest Details →</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-panel" id="panel1">
+      <div class="b-card">
+        <div class="b-card-title"><i class="bi bi-person"></i> Guest Details</div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">First Name *</label>
+            <input type="text" class="form-control" id="g-fn" placeholder="John">
+            <div class="invalid-feedback">Required.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Last Name *</label>
+            <input type="text" class="form-control" id="g-ln" placeholder="Smith">
+            <div class="invalid-feedback">Required.</div>
+          </div>
+          <div class="col-md-8">
+            <label class="form-label">Email *</label>
+            <input type="email" class="form-control" id="g-email" placeholder="john@example.com">
+            <div class="invalid-feedback">Valid email required.</div>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Phone *</label>
+            <input type="tel" class="form-control" id="g-phone" placeholder="07700900000">
+            <div class="invalid-feedback">Valid phone required.</div>
+          </div>
+        </div>
+      </div>
+      <div class="b-card">
+        <div class="b-card-title"><i class="bi bi-chat-square-text"></i> Special Requests <small style="font-weight:400;font-size:.75rem;color:var(--tm);">(optional)</small></div>
+        <textarea class="form-control" id="g-req" rows="3" placeholder="Early check-in, dietary needs…"></textarea>
+      </div>
+      <div class="b-card">
+        <div class="b-card-title"><i class="bi bi-credit-card"></i> Payment Details</div>
+        <p class="text-muted mb-3" style="font-size:.82rem;">Card not charged until check-in. All major cards accepted.</p>
+        <div class="row g-3">
+          <div class="col-12">
+            <label class="form-label">Cardholder Name *</label>
+            <input type="text" class="form-control" id="g-cn" placeholder="John Smith">
+            <div class="invalid-feedback">Required.</div>
+          </div>
+          <div class="col-md-7">
+            <label class="form-label">Card Number *</label>
+            <input type="text" class="form-control" id="g-cnum" placeholder="•••• •••• •••• ••••" maxlength="19">
+            <div class="invalid-feedback">16-digit number required.</div>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Expiry *</label>
+            <input type="text" class="form-control" id="g-exp" placeholder="MM/YY" maxlength="5">
+            <div class="invalid-feedback">MM/YY required.</div>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">CVV *</label>
+            <input type="text" class="form-control" id="g-cvv" placeholder="•••" maxlength="4">
+            <div class="invalid-feedback">Required.</div>
+          </div>
+        </div>
+        <div id="payErr" class="text-danger mt-2 d-none" style="font-size:.8rem;"></div>
+      </div>
+      <div class="d-flex gap-2">
+        <button class="btn btn-outline-secondary py-2 px-4" style="border-radius:2rem;" id="btnS2Back">← Back</button>
+        <button class="btn-confirm" id="btnS2" style="flex:1;">Review Booking →</button>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-panel" id="panel2">
+      <div class="b-card">
+        <div class="b-card-title"><i class="bi bi-clipboard-check"></i> Booking Summary</div>
+        <div class="row g-2" style="font-size:.88rem;">
+          <div class="col-5 text-muted">Room</div><div class="col-7 fw-bold" id="cs-room">—</div>
+          <div class="col-5 text-muted">Guest</div><div class="col-7" id="cs-guest">—</div>
+          <div class="col-5 text-muted">Check-in</div><div class="col-7" id="cs-in">—</div>
+          <div class="col-5 text-muted">Check-out</div><div class="col-7" id="cs-out">—</div>
+          <div class="col-5 text-muted">Guests</div><div class="col-7" id="cs-guests">—</div>
+          <div class="col-5 text-muted">Requests</div><div class="col-7 text-muted fst-italic" id="cs-req">None</div>
+        </div>
+      </div>
+      <div class="b-card">
+        <div class="price-line"><span class="text-muted" id="cs-nl">—</span><span id="cs-sub">—</span></div>
+        <div class="price-line"><span class="text-muted">Breakfast (included)</span><span style="color:#2d8653;font-weight:600;">Free</span></div>
+        <div class="price-line"><span class="text-muted">Taxes &amp; fees (10%)</span><span id="cs-tax">—</span></div>
+        <div class="price-line total"><span>Total</span><span id="cs-total">—</span></div>
+      </div>
+      <div class="b-card" style="background:var(--gl);box-shadow:none;">
+        <p style="font-size:.8rem;color:var(--gd);margin:0;">
+          <i class="bi bi-shield-check me-1"></i>
+          Free cancellation up to 48 hours before check-in. Card charged at check-in only.
+        </p>
+      </div>
+      <div class="d-flex gap-2">
+        <button class="btn btn-outline-secondary py-2 px-4" style="border-radius:2rem;" id="btnS3Back">← Back</button>
+        <button class="btn-confirm" id="btnConfirm" style="flex:1;">
+          <i class="bi bi-lock-fill me-1"></i>Confirm Booking
+        </button>
+      </div>
+      <div id="confirmErr" class="text-danger mt-2 d-none" style="font-size:.8rem;"></div>
+    </div>
+
+    <!-- Step 4 Success -->
+    <div class="step-panel" id="panel3">
+      <div class="b-card">
+        <div class="success-wrap">
+          <div class="success-icon"><i class="bi bi-check-lg"></i></div>
+          <h2 style="color:var(--gd);">Booking Confirmed!</h2>
+          <p class="text-muted">A confirmation email has been sent to your address.</p>
+          <div class="booking-ref" id="successRef">SMB-XXXXXX</div>
+          <p class="text-muted" style="font-size:.82rem;">Please quote this reference on arrival.</p>
+          <div class="stay-grid mt-4">
+            <div><div class="sg-label">Room</div><div class="sg-val" id="ss-room">—</div></div>
+            <div class="sg-div"><div class="sg-label">Check-in</div><div class="sg-val" id="ss-in">—</div></div>
+            <div class="sg-div"><div class="sg-label">Total</div><div class="sg-val" id="ss-total">—</div></div>
+          </div>
+          <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap">
+            <button class="btn-gold btn btn-lg" id="btnDone">Return to Home</button>
+            <button class="btn btn-outline-secondary btn-lg" onclick="window.print()" style="border-radius:2rem;">
+              <i class="bi bi-printer me-1"></i>Print
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- #bookingPage -->
+
+
+<!-- ══ AUTH MODAL ═════════════════════════════════════════════ -->
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-box" style="position:relative;">
+    <div class="auth-header">
+      <button class="auth-close" id="btnCloseAuth"><i class="bi bi-x"></i></button>
+      <h3>Shady Meadows B&amp;B</h3>
+      <p>Sign in to your account or create one</p>
+    </div>
+    <div class="auth-body">
+      <div class="auth-tabs">
+        <div class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Login</div>
+        <div class="auth-tab" id="tabRegister" onclick="switchTab('register')">Register</div>
+      </div>
+      <div id="authErr" class="auth-err"></div>
+
+      <!-- Login form -->
+      <div id="loginForm">
+        <div class="auth-input-wrap">
+          <label>Username or Email</label>
+          <input class="auth-input" type="text" id="lUsername" placeholder="Enter your username or email">
+        </div>
+        <div class="auth-input-wrap">
+          <label>Password</label>
+          <input class="auth-input" type="password" id="lPassword" placeholder="Enter your password">
+        </div>
+        <button class="btn-auth" id="btnLogin">Login</button>
+       
+      </div>
+
+      <!-- Register form -->
+      <div id="registerForm" style="display:none;">
+        <div class="auth-input-wrap">
+          <label>Username</label>
+          <input class="auth-input" type="text" id="rUsername" placeholder="Choose a username (min 3 chars)">
+        </div>
+        <div class="auth-input-wrap">
+          <label>Email</label>
+          <input class="auth-input" type="email" id="rEmail" placeholder="Your email address">
+        </div>
+        <div class="auth-input-wrap">
+          <label>Password</label>
+          <input class="auth-input" type="password" id="rPassword" placeholder="At least 8 characters">
+        </div>
+        <button class="btn-auth" id="btnRegister">Create Account</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+</html>

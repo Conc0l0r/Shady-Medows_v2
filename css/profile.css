@@ -1,0 +1,401 @@
+/* ══════════════════════════════════════════════════════════════
+   profile.css — Shady Meadows B&B User Profile Page
+   Matches main site design tokens
+══════════════════════════════════════════════════════════════ */
+
+:root {
+  --gd: #2d4a3e;
+  --gm: #3d6b5a;
+  --gl: #e8f0ec;
+  --gold: #c8a96e;
+  --gold-l: #f5ecd8;
+  --td: #1a2820;
+  --tm: #6c757d;
+  --w: #ffffff;
+}
+
+/* ── Profile Hero ─────────────────────────────────────────── */
+.profile-hero {
+  background: linear-gradient(135deg, var(--gd) 0%, var(--gm) 60%, #4e8a72 100%);
+  padding: 3rem 0 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.profile-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 10% 50%, rgba(200,169,110,.12) 0%, transparent 50%),
+    radial-gradient(circle at 90% 20%, rgba(255,255,255,.06) 0%, transparent 40%);
+  pointer-events: none;
+}
+.profile-hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* Avatar */
+.avatar-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--gd);
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 3px solid rgba(255,255,255,.3);
+  box-shadow: 0 4px 20px rgba(0,0,0,.2);
+}
+
+/* Hero info */
+.profile-hero-info {
+  flex: 1;
+  min-width: 200px;
+}
+.profile-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--gd);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .2rem .75rem;
+  border-radius: 2rem;
+  margin-bottom: .6rem;
+}
+.profile-hero-info h1 {
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  font-size: 1.9rem;
+  margin: 0 0 .3rem;
+}
+.profile-email,
+.profile-since {
+  color: rgba(255,255,255,.75);
+  font-size: .85rem;
+  margin: 0;
+}
+
+/* Hero actions */
+.profile-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-left: auto;
+}
+.btn-back-home,
+.btn-logout-profile {
+  padding: .4rem 1.1rem;
+  border-radius: 2rem;
+  font-size: .82rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1.5px solid rgba(255,255,255,.5);
+  background: transparent;
+  color: #fff;
+  transition: all .18s;
+  white-space: nowrap;
+}
+.btn-back-home:hover {
+  background: rgba(255,255,255,.15);
+  border-color: #fff;
+}
+.btn-logout-profile {
+  border-color: rgba(255,100,100,.5);
+  color: rgba(255,200,200,.9);
+}
+.btn-logout-profile:hover {
+  background: rgba(180,50,50,.2);
+  border-color: rgba(255,100,100,.8);
+}
+
+/* ── Stats Bar ────────────────────────────────────────────── */
+.stats-bar {
+  background: var(--w);
+  border-bottom: 1px solid var(--gl);
+  box-shadow: 0 2px 12px rgba(45,74,62,.06);
+}
+.stats-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 1.2rem 0;
+  flex-wrap: wrap;
+}
+.stat-item {
+  text-align: center;
+  padding: .5rem 2.5rem;
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--gd);
+  font-weight: 700;
+  line-height: 1;
+}
+.stat-lbl {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--tm);
+  font-weight: 700;
+  margin-top: .2rem;
+}
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--gl);
+}
+
+/* ── Profile Body ─────────────────────────────────────────── */
+.profile-body {
+  padding: 2.5rem 0 4rem;
+}
+
+/* ── Profile Card ─────────────────────────────────────────── */
+.profile-card {
+  background: var(--w);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(45,74,62,.08);
+  padding: 1.5rem;
+}
+.profile-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--gd);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  padding-bottom: .75rem;
+  border-bottom: 2px solid var(--gl);
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+}
+.profile-card-title i {
+  color: var(--gold);
+}
+
+/* ── Account detail rows ──────────────────────────────────── */
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--gl);
+  font-size: .88rem;
+  gap: 1rem;
+}
+.detail-row:last-child {
+  border-bottom: none;
+}
+.detail-label {
+  color: var(--tm);
+  font-weight: 600;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  flex-shrink: 0;
+}
+.detail-val {
+  color: var(--td);
+  font-weight: 500;
+  text-align: right;
+  word-break: break-all;
+}
+.badge-member {
+  background: var(--gl);
+  color: var(--gd);
+  font-size: .72rem;
+  font-weight: 700;
+  padding: .2rem .7rem;
+  border-radius: 2rem;
+  letter-spacing: .04em;
+}
+
+/* ── Next booking card ────────────────────────────────────── */
+.next-booking-content {
+  background: linear-gradient(135deg, var(--gd), var(--gm));
+  border-radius: 10px;
+  padding: 1.2rem;
+  color: #fff;
+}
+.next-booking-room {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: .3rem;
+}
+.next-booking-dates {
+  font-size: .82rem;
+  color: rgba(255,255,255,.8);
+  margin-bottom: .8rem;
+}
+.next-booking-ref {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--gd);
+  font-size: .75rem;
+  font-weight: 700;
+  padding: .2rem .7rem;
+  border-radius: 2rem;
+  letter-spacing: .05em;
+}
+
+/* ── Booking entries ──────────────────────────────────────── */
+.booking-entry {
+  border: 1.5px solid var(--gl);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  margin-bottom: .85rem;
+  transition: box-shadow .2s, border-color .2s;
+  cursor: pointer;
+}
+.booking-entry:last-child {
+  margin-bottom: 0;
+}
+.booking-entry:hover {
+  box-shadow: 0 4px 20px rgba(45,74,62,.1);
+  border-color: #b8d0c4;
+}
+.booking-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: .65rem;
+}
+.booking-entry-room {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--gd);
+  font-weight: 700;
+}
+.booking-entry-ref {
+  font-size: .72rem;
+  color: var(--tm);
+  font-weight: 600;
+  letter-spacing: .04em;
+  margin-top: .1rem;
+}
+.booking-status {
+  display: inline-block;
+  padding: .2rem .75rem;
+  border-radius: 2rem;
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  flex-shrink: 0;
+}
+.booking-status.pending    { background: #fff3cd; color: #856404; }
+.booking-status.confirmed  { background: #d4edda; color: #155724; }
+.booking-status.cancelled  { background: #f8d7da; color: #721c24; }
+
+.booking-entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.4rem;
+  font-size: .82rem;
+  color: var(--tm);
+}
+.booking-entry-meta span {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+.booking-entry-meta i {
+  color: var(--gold);
+  font-size: .85rem;
+}
+.booking-entry-total {
+  margin-top: .7rem;
+  padding-top: .65rem;
+  border-top: 1px solid var(--gl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .82rem;
+}
+.booking-entry-total .amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: var(--gd);
+  font-weight: 700;
+}
+
+/* Expand details */
+.booking-entry-details {
+  display: none;
+  margin-top: .85rem;
+  padding-top: .85rem;
+  border-top: 1px dashed var(--gl);
+  font-size: .83rem;
+  color: var(--td);
+}
+.booking-entry-details.open {
+  display: block;
+}
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .4rem .8rem;
+}
+.detail-grid-row {
+  display: flex;
+  flex-direction: column;
+}
+.detail-grid-label {
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--tm);
+  font-weight: 700;
+}
+.detail-grid-val {
+  color: var(--td);
+  font-weight: 500;
+  margin-top: .1rem;
+}
+.toggle-details {
+  background: none;
+  border: none;
+  color: var(--gm);
+  font-size: .78rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+.toggle-details:hover {
+  color: var(--gd);
+}
+
+@media (max-width: 576px) {
+  .profile-hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile-hero-actions {
+    margin: 0 auto;
+    flex-direction: row;
+  }
+  .stat-item {
+    padding: .5rem 1.2rem;
+  }
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
