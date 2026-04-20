@@ -1,0 +1,1 @@
+{"version":2,"defects":{"DatabaseTest::testConnection":8,"DatabaseTest::testUsersTableExists":8,"DatabaseTest::testBookingsTableExists":8},"times":{"DatabaseTest::testConnection":0.008,"DatabaseTest::testUsersTableExists":0.003,"DatabaseTest::testBookingsTableExists":0.001}}
