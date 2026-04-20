@@ -2,7 +2,7 @@
    admin.js  —  Shady Meadows B&B Admin Panel
 ══════════════════════════════════════════════════════════════ */
 
-const API = '../api/admin.php';
+const API = '/api/admin.php';
 
 // ── Bootstrap modal instances ──────────────────────────────────
 let bookingModal, replyModal, statusModal;
