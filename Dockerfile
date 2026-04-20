@@ -1,11 +1,17 @@
-FROM php:8.2-apache
+FROM ubuntu:22.04
 
-RUN docker-php-ext-install pdo pdo_mysql mysqli
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN a2dismod mpm_event mpm_worker && a2enmod mpm_prefork rewrite
+RUN apt-get update && apt-get install -y \
+    php8.1 \
+    php8.1-mysql \
+    php8.1-mbstring \
+    php8.1-curl
 
-COPY . /var/www/html/
+COPY . /app
 
-EXPOSE 80
+WORKDIR /app
 
-CMD ["apache2-foreground"]
+EXPOSE 8080
+
+CMD ["php8.1", "-S", "0.0.0.0:8080", "-t", "."]
