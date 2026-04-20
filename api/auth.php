@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'me') {
             'id'       => $_SESSION['user_id'],
             'username' => $_SESSION['username'],
             'email'    => $_SESSION['email'],
+            'created_at' => $row['created_at'] ?? null,
         ]]);
     }
     jsonErr('Not authenticated', 401);
