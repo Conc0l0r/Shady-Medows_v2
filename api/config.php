@@ -72,7 +72,7 @@ function getDB(): PDO {
 // ── Session bootstrap ─────────────────────────────────────────
 function startSession(): void {
     if (session_status() === PHP_SESSION_NONE) {
-        ini_set('session.save_path', 'C:/xampp/tmp');
+       ini_set('session.save_path', 'C:/xampp/tmp');
         ini_set('session.cookie_samesite', 'None');
         ini_set('session.cookie_secure', '1');
         session_set_cookie_params([
