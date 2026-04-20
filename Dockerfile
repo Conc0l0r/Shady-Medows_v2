@@ -1,11 +1,11 @@
-FROM php:8.2-cli
+FROM php:8.2-apache
 
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 
-COPY . /app
+COPY . /var/www/html/
 
-WORKDIR /app
+RUN a2enmod rewrite
 
-EXPOSE 8080
+EXPOSE 80
 
-CMD php -S 0.0.0.0:${PORT:-8080} -t .
+CMD ["apache2-foreground"]
