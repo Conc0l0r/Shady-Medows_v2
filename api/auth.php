@@ -17,10 +17,14 @@ $action = $_GET['action'] ?? '';
 // -- GET /me  (check current session) -------------------------
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'me') {
     if (!empty($_SESSION['user_id'])) {
+        $db   = getDB();
+        $stmt = $db->prepare('SELECT created_at FROM users WHERE id = ?');
+        $stmt->execute([$_SESSION['user_id']]);
+        $row  = $stmt->fetch();
         jsonOk(['user' => [
-            'id'       => $_SESSION['user_id'],
-            'username' => $_SESSION['username'],
-            'email'    => $_SESSION['email'],
+            'id'         => $_SESSION['user_id'],
+            'username'   => $_SESSION['username'],
+            'email'      => $_SESSION['email'],
             'created_at' => $row['created_at'] ?? null,
         ]]);
     }
