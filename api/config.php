@@ -1,9 +1,6 @@
 <?php
 ini_set('session.save_path', 'C:/xampp/tmp');
 
-
-
-
 require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/Exception.php';
 require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
@@ -75,7 +72,7 @@ function getDB(): PDO {
 // ── Session bootstrap ─────────────────────────────────────────
 function startSession(): void {
     if (session_status() === PHP_SESSION_NONE) {
-        ini_set('session.save_path', '/tmp');
+        ini_set('session.save_path', 'C:/xampp/tmp');
         ini_set('session.cookie_samesite', 'None');
         ini_set('session.cookie_secure', '1');
         session_set_cookie_params([
