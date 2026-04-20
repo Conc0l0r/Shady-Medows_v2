@@ -2,7 +2,7 @@
 nixPkgs = ["php82", "php82Extensions.pdo", "php82Extensions.pdo_mysql", "php82Extensions.mysqli", "php82Extensions.mbstring", "php82Extensions.curl"]
 
 [phases.build]
-cmds = []
+cmds = ["php82 -m | grep -i mysql"]
 
 [start]
-cmd = "php82 -c php.ini -S 0.0.0.0:${PORT:-8080} -t ."
+cmd = "php82 -d extension=pdo_mysql -d extension=mysqli -S 0.0.0.0:${PORT:-8080} -t ."
