@@ -75,6 +75,7 @@ function getDB(): PDO {
 // ── Session bootstrap ─────────────────────────────────────────
 function startSession(): void {
     if (session_status() === PHP_SESSION_NONE) {
+        session_save_path('/tmp');  // ← add this line
         session_set_cookie_params([
             'lifetime' => SESSION_LIFETIME,
             'path'     => '/',
