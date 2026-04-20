@@ -82,13 +82,14 @@ if ($action === 'login') {
     $_SESSION['email']    = $user['email'];
 
     // -- Admin redirect if logging in with admin email --------
+// -- Admin redirect if logging in with admin email --------
     if ($user['email'] === ADMIN_EMAIL) {
         $_SESSION['admin_logged_in'] = true;
         jsonOk(['user' => [
             'id'       => $user['id'],
             'username' => $user['username'],
             'email'    => $user['email'],
-        ], 'redirect' => 'admin/index.html']);
+        ], 'redirect' => 'admin/index.html?autologin=1']);
     }
 
     jsonOk(['user' => [
