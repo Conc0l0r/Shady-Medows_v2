@@ -16,7 +16,31 @@
 <!-- ═══════════════════════════════════════════════════════════
      LOGIN SCREEN
 ═══════════════════════════════════════════════════════════ -->
-
+<div id="loginScreen" class="login-screen">
+  <div class="login-card">
+    <div class="login-logo">
+      <i class="bi bi-tree-fill"></i>
+      <h1>Shady Meadows</h1>
+      <p class="login-sub">Admin Panel</p>
+    </div>
+    <div id="loginError" class="alert alert-danger d-none" role="alert"></div>
+    <div class="mb-3">
+      <label class="form-label">Admin Password</label>
+      <div class="input-group">
+        <input type="password" id="adminPassword" class="form-control" placeholder="Enter admin password">
+        <button class="btn btn-outline-secondary" type="button" id="togglePw">
+          <i class="bi bi-eye"></i>
+        </button>
+      </div>
+    </div>
+    <button class="btn btn-admin-primary w-100" id="loginBtn">
+      <i class="bi bi-shield-lock me-2"></i>Sign In
+    </button>
+    <p class="mt-3 text-center" style="font-size:.8rem;color:var(--tm);">
+      <a href="../index.html" style="color:var(--gm);">← Back to website</a>
+    </p>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════
      MAIN ADMIN LAYOUT
