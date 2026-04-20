@@ -8,11 +8,11 @@ require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/Exception.php';
 require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
 
-define('DB_HOST', getenv('MYSQLHOST')     ?: 'localhost:3307');
+define('DB_HOST', getenv('MYSQLHOST')     ?: 'localhost');
 define('DB_NAME', getenv('MYSQLDATABASE') ?: 'shadymedowsv2');
 define('DB_USER', getenv('MYSQLUSER')     ?: 'root');
 define('DB_PASS', getenv('MYSQLPASSWORD') ?: '');
-define('DB_PORT', (int)(getenv('MYSQLPORT') ?: 3306));
+define('DB_PORT', (int)(getenv('MYSQLPORT') ?: 3307));
 
 // SMTP / PHPMailer config
 define('SMTP_HOST', 'smtp.gmail.com');
