@@ -16,7 +16,6 @@
   },
   "homepage": "https://github.com/Conc0l0r/Shady-Medows_v2#readme",
   "devDependencies": {
-    "@playwright/test": "^1.59.1",
     "@types/node": "^25.6.0"
   },
   "dependencies": {
